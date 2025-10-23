@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="ConeGS: Error-Guided Densification Using Pixel Cones for Improved Reconstruction with Fewer Primitives">
+  <meta name="keywords" content="ConeGS, Error-Guided Densification, Pixel Cones">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ConeGS: Error-Guided Densification Using Pixel Cones for Improved Reconstruction with Fewer Primitives</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="static/css/bootstrap-4.4.1.css">
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/icon.png">
+  <script src="static/js/video_comparison.js"></script>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+  <link rel="stylesheet" href="static/css/dics.original.css">
+  <script src="static/js/event_handler.js"></script>
+  <script src="static/js/dics.original.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">ConeGS: Error-Guided Densification Using Pixel Cones for Improved Reconstruction with Fewer Primitives</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://baranowskibrt.github.io/">Bartłomiej Baranowski</a><sup>1</sup></span>&nbsp;&nbsp;&nbsp;&nbsp;
+            <span class="author-block">
+              <a href="https://s-esposito.github.io/">Stefano Esposito</a><sup>1</sup></span>&nbsp;&nbsp;&nbsp;&nbsp;
+            <span class="author-block">
+              <a href="https://patriciagschossmann.github.io/">Patricia Gschoßmann</a><sup>1</sup>
+            </span>&nbsp;&nbsp;&nbsp;&nbsp;
+            <span class="author-block">
+              <a href="https://apchenstu.github.io/">Anpei Chen</a><sup>1</sup>
+            </span>&nbsp;&nbsp;&nbsp;&nbsp;
+            <span class="author-block">
+              <a href="http://www.cvlibs.net/">Andreas Geiger</a><sup>1</sup>
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>University of Tübingen</span>&nbsp;&nbsp;&nbsp;&nbsp;
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+
+              <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+          
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark disabled">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark disabled">
+                  <span class="icon">
+                      <i class="fab fa-dribbble"></i>
+                  </span>
+                  <span>Viewer</span>
+                  </a>
+              </span>
+  
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-full-width">
+      
+          <video class="video" width="100%" id="xyalias6" loop playsinline autoplay muted src="static/videos/comparison.mp4" onplay="resizeAndPlay(this)" style="height: 0px;"></video>
+          <canvas height=0 class="videoMerge" id="xyalias6Merge"></canvas>
+      
+          <h2 class="subtitle has-text-centered" style="margin-top: 15px">
+            
+          </h2>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+          3D Gaussian Splatting (3DGS) achieves state-of-the-art image quality and real-time performance in novel view synthesis but often suffers from a suboptimal spatial distribution of primitives. This issue stems from cloning-based densification, which propagates Gaussians along existing geometry, limiting exploration and requiring many primitives to adequately cover the scene.
+          </p>
+          <p>
+          We present <b>ConeGS</b>, an image-space-informed densification framework that is independent of existing scene geometry state. ConeGS first creates a fast Instant Neural Graphics Primitives (iNGP) reconstruction as a geometric proxy to estimate per-pixel depth. During the subsequent 3DGS optimization, it identifies high-error pixels and inserts new Gaussians along the corresponding viewing cones at the predicted depth values, initializing their size according to the cone diameter. A pre-activation opacity penalty rapidly removes redundant Gaussians, while a primitive budgeting strategy controls the total number of primitives, either by a fixed budget or by adapting to scene complexity, ensuring high reconstruction quality.
+          </p>
+          <p>
+          Experiments show that ConeGS consistently enhances reconstruction quality and rendering performance across Gaussian budgets, with especially strong gains under tight primitive constraints where efficient placement is crucial.
+
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="column is-full-width has-text-centered">
+        <h2 class="title is-3">Overview</h2>
+        <img src="static/images/toy_example.png" class="center" style="width:80%;">
+        <div class="content has-text-justified">
+          <p style="margin-top: 30px">
+            Densification using <b>cloning</b> struggles to determine where to add new Gaussians and inherits existing biases, requiring many steps to converge. <b>ConeGS</b>, by contrast, places primitives in areas responsible for high photometric error, guided by a geometric iNGP proxy and sized according to the pixel viewing cone, enabling faster scene integration without reliance on the existing geometry.
+          </p>
+        </div>
+    </div>
+</section>
+
+<section class="section has-background-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Video (Coming soon)</h2>
+        <div class="publication-video">
+          <iframe src="https://www.youtube.com/embed/?rel=0&amp;showinfo=0"
+                  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Pipeline</h2>
+        <img src="static/images/pipeline_whole_roboto.png" class="center">
+
+        <div class="content has-text-justified">
+          <p style="margin-top: 30px">
+            <b>Initialization.</b> First, an iNGP reconstruction is obtained to serve as a geometric proxy for object surfaces, guiding the placement of Gaussians both during scene initialization and throughout the 3DGS optimization process.
+          </p>
+          <p>
+          
+            <b>Optimization.</b> During 3DGS optimization, ConeGS performs error-guided densification by sampling a subset of pixels with high L<sub>1</sub> error.
+            For each sampled pixel, a new Gaussian 𝒢 is created along the pixel's viewing cone at the depth estimated by iNGP and scaled to match the cone's size. 
+            New Gaussians are accumulated and, every 100 iterations, inserted into the scene after pruning those with low opacity.
+            Blue arrows indicate <span style="color: blue;">gradient updates</span> to Gaussian parameters, and the red arrow marks <span style="color: red;">scene updates</span>.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section has-background-light">
+  <div class="container is-max-desktop">
+  <div class="columns is-centered has-text-centered">
+    <div class="column is-full-width">
+      <h2 class="title is-3">Results</h2>
+      <div class="content has-text-justified">
+        <p>
+        A more efficient primitive allocation of <b>ConeGS</b> is particularly useful for achieving high reconstruction quality with fewer primitives, enabling real-time, high-quality rendering even with limited resources. In this comparison, the results obtained using our method across various scenes and datasets are superior to those of MCMC (with SfM initialization) and EDGS, which is especially noticeable when the number of primitives is small.
+        </p>
+      </div>
+
+    </div>
+  </div>
+
+
+      <div class="column is-full-width">
+
+      <!-- Scene Selection -->
+      <ul class="nav nav-tabs nav-fill nav-justified" id="object-scale-recon">
+          <li class="nav-item"><a class="nav-link active" onclick="objectSceneEvent(0)">OMMO 05</a></li>
+          <li class="nav-item"><a class="nav-link" onclick="objectSceneEvent(1)">OMMO 10</a></li>
+          <li class="nav-item"><a class="nav-link" onclick="objectSceneEvent(2)">OMMO 13</a></li>
+          <li class="nav-item"><a class="nav-link" onclick="objectSceneEvent(3)">OMMO 15</a></li>
+          <li class="nav-item"><a class="nav-link" onclick="objectSceneEvent(4)">Room</a></li>
+          <li class="nav-item"><a class="nav-link" onclick="objectSceneEvent(5)">Stump</a></li>
+          <li class="nav-item"><a class="nav-link" onclick="objectSceneEvent(6)">Bonsai</a></li>
+          <li class="nav-item"><a class="nav-link" onclick="objectSceneEvent(7)">Train</a></li>
+          <li class="nav-item"><a class="nav-link" onclick="objectSceneEvent(8)">Dr Johnson</a></li>
+      </ul>
+
+      <!-- Primitive Settings -->
+      <ul class="nav nav-tabs nav-fill nav-justified mt-3" id="primitive-settings">
+          <li class="nav-item"><a class="nav-link" onclick="primitiveEvent(0)">50k</a></li>
+          <li class="nav-item"><a class="nav-link active" onclick="primitiveEvent(1)">100k</a></li>
+          <li class="nav-item"><a class="nav-link" onclick="primitiveEvent(2)">200k</a></li>
+          <li class="nav-item"><a class="nav-link" onclick="primitiveEvent(3)">500k</a></li>
+          <li class="nav-item"><a class="nav-link" onclick="primitiveEvent(4)">1M</a></li>
+      </ul>
+
+      <!-- Images -->
+      <div class="b-dics mt-4" style="width: 1000px; font-weight: 600;">
+          <img src="static/image_comparison/ommo_05_00001_100k_mcmc.jpg" alt="MCMC (SfM init)">
+          <img src="static/image_comparison/ommo_05_00001_100k_conegs.jpg" alt="ConeGS">
+          <img src="static/image_comparison/ommo_05_00001_100k_edgs.jpg" alt="EDGS">
+          <img src="static/image_comparison/ommo_05_00001_gt.jpg" alt="GT">
+      </div>
+      </div>
+  
+  </div>
+</section>
+
+
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+      <h3 class="title is-4">Real-Time Interactive Viewer</h3>
+        <div class="content has-text-justified">
+          <p>
+            To explore the results with a limited number of primitives press an icon or check out our <a href="https://baranowskibrt.github.io/conegs_viewer/">online viewer</a>. 
+          </p>
+        </div>
+        <div class="content-row">
+          <div class="demo-scene-panel" onclick="openDemo('bicycle')">
+            <img src="static/images/bicycle.png" class="demo-scene-panel-image">
+            <span class="small-title">Bicycle</span>
+          </div>
+  
+          <div class="demo-scene-panel" onclick="openDemo('garden')">
+                <img src="static/images/garden.png" class="demo-scene-panel-image">
+                <span class="small-title">Garden</span>
+            </div>
+            <div class="demo-scene-panel" onclick="openDemo('stump')">
+                <img src="static/images/stump.png" class="demo-scene-panel-image">
+                <span class="small-title">Stump</span>
+            </div>
+          </div>
+
+      </div>
+    </div>
+    </div>
+
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+    <!-- <div class="content has-text-centered">
+      <a class="icon-link"
+         href="./static/videos/nerfies_paper.pdf">
+        <i class="fas fa-file-pdf"></i>
+      </a>
+      <a class="icon-link" href="https://github.com/keunhong" class="external-link" disabled>
+        <i class="fab fa-github"></i>
+      </a>
+    </div> -->
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+        <p>
+          This website is licensed under a 
+          <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer">
+            Creative Commons Attribution-ShareAlike 4.0 International License
+          </a>.
+        </p>
+        <p>
+          Thank you to 
+          <a href="https://github.com/nerfies/nerfies.github.io" target="_blank" rel="noopener noreferrer">Nerfies</a> 
+          for providing the code for this website template, to 
+          <a href="https://dorverbin.github.io/refnerf/" target="_blank" rel="noopener noreferrer">Ref-NeRF</a> 
+          for the video comparison with sliding bar, and to 
+          <a href="https://research.nvidia.com/labs/dir/neuralangelo/" target="_blank" rel="noopener noreferrer">Neuralangelo</a> 
+          for the image comparison with sliding bar.
+        </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
