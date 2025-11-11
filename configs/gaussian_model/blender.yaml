@@ -1,0 +1,5 @@
+defaults:
+  - defaults.yaml
+  - _self_
+
+white_background: true

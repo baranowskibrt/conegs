@@ -1,0 +1,26 @@
+# @package _global_
+
+scene_name: ???
+run_name: test
+
+debug_from: -1
+detect_anomaly: false
+test_iterations:
+  - 1
+  - 1500
+  - 3000
+  - 7000
+  - 15000
+  - ${optimization.iterations}
+save_iterations:
+  - ${optimization.iterations}
+quiet: false
+checkpoint_iterations: []
+start_checkpoint: null
+checkpoint: null
+enable_wandb: false
+gaussian_model:
+  source_path: ../scenes
+  model_path: "output/${scene_name}/${run_name}"
+log_dir: output
+log_project_name: ${scene_name}

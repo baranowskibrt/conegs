@@ -1,0 +1,12 @@
+defaults:
+  - gaussian_model: defaults
+  - optimization: defaults
+  - pipeline: defaults
+  - training: defaults
+  - nerf_model: defaults
+  - _self_
+
+hydra:  
+  output_subdir: null  
+  run:  
+    dir: .

@@ -1,0 +1,35 @@
+optimizer:
+  _target_: torch.optim.Adam
+  lr: 0.01
+  betas: [0.9, 0.999]
+  eps: 1e-15
+  weight_decay: 1e-5
+
+estimator:
+  otype: HashGrid
+  n_levels: 16
+  n_features_per_level: 2
+  log2_hashmap_size: 19
+  base_resolution: 16
+  per_level_scale: 1.45
+
+num_iters_pretrain: 20000
+unbounded: true
+predict_SH: false
+trained_hash_model_path: null
+opaque_bkgd: true
+
+near_plane: 0.2
+far_plane: 1e6
+pretraining_num_rays: 4096
+num_samples: 48
+sampling_type: "lindisp"
+
+pretrain_with_gaussians: false
+use_adaptive_scaling: false
+cumsum_jiggle: false
+stack_images: true
+log_nerf_renders: false
+nerf_train_during_3dgs: false
+gs_supervising_nerf_weight: 0
+nerf_supervising_gs_weight: 0

@@ -1,0 +1,45 @@
+iterations: 30_000
+position_lr_init: 0.00016
+position_lr_final: 0.0000016
+position_lr_delay_mult: 0.01
+position_lr_max_steps: 30_000
+features_dc_lr: 0.0025
+features_rest_lr: 0.000125
+opacity_lr: 0.05
+scaling_lr: 0.005
+rotation_lr: 0.001
+percent_dense: 0.01
+lambda_dssim: 0.2
+densification_interval: 100
+opacity_reset_interval: 3000
+densify_from_iter: 0
+SH_increase_iter: 1000
+densify_until_iter: 25_000
+densify_grad_threshold: 0.0002
+random_background: false
+min_opacity_prune: 0.005
+prune_big: false
+max_points: null
+resolution: 1.0
+resolution_increase_interval: 5000
+# contraction_scaling_mult: 5
+contraction_scaling_mult: 0
+opacity_init_value: 0.1
+ray_shooting_break: 0
+opacity_reset_value: 0.8
+densification_scaling_mult: 0.8
+use_mcmc_densification: false
+use_3dgs_densification: false
+initialization_scaling_mult: 15
+
+opacity_penalty: 0.0002
+scaling_penalty: 0
+mcmc_error_rate: 0
+
+densification_lambda_dssim: 0
+num_gaussians_initialized: 1_000_000
+render_with_gaussians: false
+densification_gaussian_size: 1.0
+uniform_densification: false
+use_preactivation_opacity_penalty: true
+gaussian_percentage_increase: 0.02

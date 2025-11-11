@@ -1,0 +1,3 @@
+convert_SHs_python: false
+compute_cov3D_python: false
+debug: false
