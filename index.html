@@ -65,19 +65,9 @@
 
           <div class="column has-text-centered">
             <div class="publication-links">
-              <!-- PDF Link. -->
-              <span class="link-block">
-                <a href=""
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="fas fa-file-pdf"></i>
-                  </span>
-                  <span>Paper</span>
-                </a>
-              </span>
 
               <span class="link-block">
-                <a href=""
+                <a href="https://arxiv.org/abs/2511.06810"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="ai ai-arxiv"></i>
@@ -85,26 +75,25 @@
                   <span>arXiv</span>
                 </a>
               </span>
-          
+
+              <span class="link-block">
+                <a href="https://youtu.be/ET0q50QAlbI"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <svg class="svg-inline--fa fa-play fa-w-14" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="play" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M424.4 214.7L72.4 6.6C43.8-10.3 0 6.1 0 47.9V464c0 37.5 40.7 60.1 72.4 41.3l352-208c31.4-18.5 31.5-64.1 0-82.6z"></path></svg>
+                  </span>
+                  <span>Video</span>
+                </a>
+              </span>
+
               <!-- Code Link. -->
               <span class="link-block">
-                <a href=""
+                <a href="https://github.com/baranowskibrt/conegs"
                    class="external-link button is-normal is-rounded is-dark disabled">
                   <span class="icon">
                       <i class="fab fa-github"></i>
                   </span>
                   <span>Code</span>
-                  </a>
-              </span>
-
-              <!-- Code Link. -->
-              <span class="link-block">
-                <a href=""
-                   class="external-link button is-normal is-rounded is-dark disabled">
-                  <span class="icon">
-                      <i class="fab fa-dribbble"></i>
-                  </span>
-                  <span>Viewer</span>
                   </a>
               </span>
   
@@ -178,9 +167,9 @@
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
-        <h2 class="title is-3">Video (Coming soon)</h2>
+        <h2 class="title is-3">Video</h2>
         <div class="publication-video">
-          <iframe src="https://www.youtube.com/embed/?rel=0&amp;showinfo=0"
+          <iframe src="https://www.youtube.com/embed/ET0q50QAlbI?rel=0&amp;showinfo=0"
                   frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
         </div>
       </div>
@@ -264,21 +253,24 @@
   </div>
 </section>
 
-
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>
+      @inproceedings{baranowski2026conegs, 
+        title={ConeGS: Error-Guided Densification Using Pixel Cones for Improved Reconstruction with Fewer Primitives}, 
+        author={Bartłomiej Baranowski and Stefano Esposito and Patricia Gschoßmann and Anpei Chen and Andreas Geiger},
+        year={2026},
+        booktitle = {2026 International Conference on 3D Vision (3DV)}, 
+      }
+    </code></pre>
+  </div>
+</section>
 
 
 
 <footer class="footer">
   <div class="container">
-    <!-- <div class="content has-text-centered">
-      <a class="icon-link"
-         href="./static/videos/nerfies_paper.pdf">
-        <i class="fas fa-file-pdf"></i>
-      </a>
-      <a class="icon-link" href="https://github.com/keunhong" class="external-link" disabled>
-        <i class="fab fa-github"></i>
-      </a>
-    </div> -->
     <div class="columns is-centered">
       <div class="column is-8">
         <div class="content">
@@ -302,6 +294,7 @@
     </div>
   </div>
 </footer>
+
 
 </body>
 </html>
