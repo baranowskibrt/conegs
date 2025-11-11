@@ -1,5 +1,17 @@
 <h1 align="center">ConeGS: Error-Guided Densification Using Pixel Cones for Improved Reconstruction with Fewer Primitives</h1>
 
+<p align="center" dir="auto">
+    <a href="https://baranowskibrt.github.io/" rel="nofollow">Bartłomiej Baranowski</a>
+    ·
+    <a href="https://s-esposito.github.io/" rel="nofollow">Stefano Esposito</a>
+    ·
+    <a href="https://patriciagschossmann.github.io/" rel="nofollow">Patricia Gschoßmann</a>
+    ·
+    <a href="https://apchenstu.github.io/" rel="nofollow">Anpei Chen</a>
+    ·
+    <a href="http://www.cvlibs.net/" rel="nofollow">Andreas Geiger</a>
+  </p>
+
 <div align="center">
 
 [![button](https://img.shields.io/badge/Project%20Website-blue?style=for-the-badge)](https://baranowskibrt.github.io/conegs/)
@@ -20,6 +32,8 @@ The code was tested on Python 3.11 with PyTorch 2.5.1 with CUDA Toolkit 12.1 and
 Installed CUDA Toolkit is required. To run the code install the following packages:
 
 ```shell
+git clone https://github.com/baranowskibrt/conegs.git --recursive
+
 conda create -n conegs python=3.11
 conda install pytorch==2.5.1 torchvision==0.20.1 torchaudio==2.5.1 pytorch-cuda=12.1 -c pytorch -c nvidia
 pip install git+https://github.com/NVlabs/tiny-cuda-nn/#subdirectory=bindings/torch
