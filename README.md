@@ -86,12 +86,16 @@ python full_eval.py --mipnerf360 ../scenes/ --tanksandtemples ../scenes/ --deepb
 
 ### Datasets
 
-You can access the datasets we evaluated on here:
+We use the original release of every dataset:
 
 - [**MipNeRF360** ](https://jonbarron.info/mipnerf360/), `images_4` (outdoor) and `images_2` (indoor)
 - [**OMMO** ](https://drive.google.com/drive/folders/1Nu_xD4CUc_1f2YKEbdZP-nfbzyI3na7m?usp=sharing), scene 01 resized to 1600px width
-- [**Deep Blending**](https://repo-sam.inria.fr/fungraph/3d-gaussian-splatting/datasets/input/tandt_db.zip), `db/drjohnson` and `db/playroom`
-- [**Tanks & Temples**](https://www.tanksandtemples.org/download/), we use the original high-resolution Truck and Train without rescaling, not the downscaled copies in `tandt_db.zip`
+- [**Tanks & Temples**](https://www.tanksandtemples.org/download/), Truck and Train at their original resolution, without rescaling
+- [**Deep Blending**](https://www-sop.inria.fr/reves/publis/2018/HPPFDB18/datasets.html), Dr Johnson and Playroom
+
+Note that the `tandt_db.zip` distributed with 3DGS is a different copy of the last two. Its Tanks &
+Temples images are downscaled, and its Deep Blending scenes are each missing one image, which shifts
+the test split. Results obtained from it will not match the ones reported here.
 
 ### Your own data
 
