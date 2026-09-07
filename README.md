@@ -88,9 +88,10 @@ python full_eval.py --mipnerf360 ../scenes/ --tanksandtemples ../scenes/ --deepb
 
 You can access the datasets we evaluated on here:
 
-- [**MipNeRF360** ](https://jonbarron.info/mipnerf360/)
-- [**OMMO** ](https://drive.google.com/drive/folders/1Nu_xD4CUc_1f2YKEbdZP-nfbzyI3na7m?usp=sharing)
-- [**Tanks & Temples and Deep Blending**](https://repo-sam.inria.fr/fungraph/3d-gaussian-splatting/datasets/input/tandt_db.zip)
+- [**MipNeRF360** ](https://jonbarron.info/mipnerf360/), `images_4` (outdoor) and `images_2` (indoor)
+- [**OMMO** ](https://drive.google.com/drive/folders/1Nu_xD4CUc_1f2YKEbdZP-nfbzyI3na7m?usp=sharing), scene 01 resized to 1600px width
+- [**Deep Blending**](https://repo-sam.inria.fr/fungraph/3d-gaussian-splatting/datasets/input/tandt_db.zip), `db/drjohnson` and `db/playroom`
+- [**Tanks & Temples**](https://www.tanksandtemples.org/download/), we use the original high-resolution Truck and Train without rescaling, not the downscaled copies in `tandt_db.zip`
 
 ### Your own data
 
